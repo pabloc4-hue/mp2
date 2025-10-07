@@ -1,0 +1,37 @@
+/* src/pages/ListView.css */
+.lv-container { max-width: 960px; margin: 0 auto; padding: 2rem 1rem; }
+.lv-title { margin: 0 0 1rem; font-size: 1.8rem; }
+.lv-toolbar { display: flex; gap: .75rem; align-items: center; margin-bottom: 1rem; }
+.lv-input { flex: 1; padding: .6rem .8rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; }
+
+.lv-status { color: #555; margin-top: .5rem; }
+.lv-error { color: #b00020; }
+
+.lv-grid {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.lv-card { border: 1px solid #e6e6e6; border-radius: 10px; overflow: hidden; background: #fff; }
+.lv-thumb { width: 100%; height: 140px; object-fit: cover; display: block; }
+.lv-name { font-weight: 600; padding: .5rem .75rem .25rem; }
+.lv-meta { color: #666; padding: 0 .75rem .75rem; font-size: .9rem; }
+
+##Style for the sort button
+.lv-sort-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lv-sort-btn:hover {
+  background: #e6e6e6;
+}
