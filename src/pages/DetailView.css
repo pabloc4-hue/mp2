@@ -1,0 +1,91 @@
+.dv-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.dv-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* 🟨 Imagen + flechas */
+.dv-image-wrap {
+  position: relative;
+  width: min(500px, 90vw);
+  margin: 1.5rem auto 2rem;
+}
+
+.dv-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* 🟩 Flechas laterales */
+.dv-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dv-arrow-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dv-arrow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 🡄 izquierda / 🡆 derecha */
+.dv-prev {
+  left: 10px;
+}
+
+.dv-next {
+  right: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .dv-arrow-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+/* 🟦 Info adicional */
+.dv-meta {
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.dv-instructions {
+  white-space: pre-line;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #333;
+}
+
+.dv-video {
+  margin-top: 2rem;
+}

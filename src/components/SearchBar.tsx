@@ -33,7 +33,7 @@ export default function SearchBar({
         type="button"
         onClick={onToggleSort}
       >
-        Sort: {sortAsc ? 'A → Z' : 'Z → A'}
+        Sort by Name: {sortAsc ? 'A → Z' : 'Z → A'}
       </button>
 
       {value && (

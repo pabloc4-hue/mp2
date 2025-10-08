@@ -5,15 +5,17 @@ import type { Meal } from '../types/meals';
 import './ListView.css'
 import MealCard from '../components/MealCard';
 import SearchBar from '../components/SearchBar';
+import { Link } from 'react-router-dom';
 
 
 
 export default function ListView() {
-  const [query, setQuery] = useState('chicken');   // búsqueda inicial
+  const [query, setQuery] = useState('');   // búsqueda inicial
   const [meals, setMeals] = useState<Meal[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sortAsc, setSortAsc] = useState(true);
+  const [sortProperty, setSortProperty] = useState<'name' | 'category'>('name');
 
 
   useEffect(() => {
@@ -36,14 +38,33 @@ export default function ListView() {
 
   // Order the meals
   const sortedMeals = [...meals].sort((a, b) => {
-    return sortAsc
-      ? a.strMeal.localeCompare(b.strMeal)
-      : b.strMeal.localeCompare(a.strMeal);
+    const fieldA =
+      sortProperty === 'name'
+        ? a.strMeal.toLowerCase()
+        : a.strCategory?.toLowerCase() ?? '';
+    const fieldB =
+      sortProperty === 'name'
+        ? b.strMeal.toLowerCase()
+        : b.strCategory?.toLowerCase() ?? '';
+
+    return sortAsc ? fieldA.localeCompare(fieldB) : fieldB.localeCompare(fieldA);
   });
+
 
   return (
     <div className="lv-container">
       <h1 className="lv-title">Meal Search</h1>
+      <div className="lv-sort-controls">
+        <label htmlFor="sortProperty">Sort by:</label>
+        <select
+          id="sortProperty"
+          value={sortProperty}
+          onChange={(e) => setSortProperty(e.target.value as 'name' | 'category')}
+        >
+          <option value="name">Name</option>
+          <option value="category">Category</option>
+        </select>
+      </div>
 
       <SearchBar
         value={query}
@@ -61,7 +82,7 @@ export default function ListView() {
 
       <ul className="lv-grid">
         {sortedMeals.map((m) => (
-          <MealCard key={m.idMeal} meal={m} />
+          <MealCard key={m.idMeal} meal={m} variant="list" />
             ))}
       </ul>
     </div>
