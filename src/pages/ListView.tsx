@@ -5,7 +5,6 @@ import type { Meal } from '../types/meals';
 import './ListView.css'
 import MealCard from '../components/MealCard';
 import SearchBar from '../components/SearchBar';
-import { Link } from 'react-router-dom';
 
 
 
